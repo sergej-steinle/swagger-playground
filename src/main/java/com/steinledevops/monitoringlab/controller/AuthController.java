@@ -1,6 +1,8 @@
 package com.steinledevops.monitoringlab.controller;
 
+import com.steinledevops.monitoringlab.request.AuthenticationRequest;
 import com.steinledevops.monitoringlab.request.RegisterRequest;
+import com.steinledevops.monitoringlab.response.AuthenticationResponse;
 import com.steinledevops.monitoringlab.service.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -24,5 +26,14 @@ public class AuthController {
     public ResponseEntity<Void> register(@RequestBody @Valid RegisterRequest registerRequest){
         authenticationService.register(registerRequest);
         return ResponseEntity.ok().build();
+    }
+
+
+    @Operation(summary = "Authenticate user and generate token", description = "Authenticates user credentials and returns JWT token")
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResponse> login(@RequestBody @Valid AuthenticationRequest authenticationRequest){
+        var response = authenticationService.login(authenticationRequest);
+        return ResponseEntity.ok(response);
     }
 }
