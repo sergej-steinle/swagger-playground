@@ -41,6 +41,8 @@ public class SecurityConfig {
                     "/swagger-resources/**",
                     "/webjars/**",
                     "/docs").permitAll();
+
+            requests.anyRequest().authenticated();
         });
         return http.build();
     }
