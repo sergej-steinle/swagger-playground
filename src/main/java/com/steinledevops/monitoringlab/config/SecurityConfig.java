@@ -33,6 +33,7 @@ public class SecurityConfig {
             http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
             requests.requestMatchers(
+                    "/api/auth/**",
                     "/swagger-ui/**",
                     "/v3/api-docs/**",
                     "/swagger-resources/**",
