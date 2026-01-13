@@ -1,7 +1,7 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: monitoring-lab-mysql
+    container_name: swagger-playground-mysql
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: password
