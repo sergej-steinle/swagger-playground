@@ -78,10 +78,17 @@ docker compose up -d
 http://localhost:8080/docs
 ```
 
+## Default Admin
+
+Beim ersten Start wird automatisch ein Admin-Benutzer erstellt:
+
+- **Username:** `admin`
+- **Password:** `password`
+
 ## Authentifizierung in Swagger UI
 
-1. POST `/api/auth/register` - Benutzer registrieren
-2. POST `/api/auth/login` - Token erhalten
+1. POST `/api/auth/login` mit den Admin-Credentials
+2. Token aus der Response kopieren
 3. "Authorize" Button klicken und Token eingeben
 4. Geschützte Endpoints sind nun nutzbar
 
